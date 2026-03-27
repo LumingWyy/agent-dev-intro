@@ -169,7 +169,7 @@ body{
 .e-big{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;color:var(--red);animation:pulse 1.2s ease infinite;}
 
 /* ══ CONCEPT SCENES (background) ══ */
-#s4,#s5,#s6,#s7,#s8,#s9,#s10,#s11,#s12,#s13,#s14,#s15,#s16,#s17,#s18,#s19,#s20,
+#s4,#s5,#s6,#s7,#s8,#s9,#s10,#s11,#s12,#s13,#s14,#s14b,#s15,#s16,#s17,#s18,#s19,#s20,
 #s21,#s22,#s23,#s24,#s25,#s26,#s27,#s28,#s29,#s30,#s30a,#s30b,#s31,#s32,
 #s34,#s35,#s36,#s37,#s38,#s39,#s40,#s41,#s42,#s43{background:var(--bg);}
 
@@ -579,22 +579,31 @@ html{font-size:clamp(16px,1.3vw+0.5vh,22px);}
 
 <!-- ⑪PROMPT -->
 <div class="scene" id="s11">
-  <div class="ann-layout">
-    <div class="ann-side">
-      <div class="ann-item d2" style="animation-name:slideL;">
-        <span class="ae">Prompt</span>
-        <span class="az">プロンプト</span>
-        <span class="ar"> →</span>
+  <div style="display:flex;flex-direction:column;gap:10px;width:93vw;max-width:960px;">
+    <!-- 問 row: Prompt label points here -->
+    <div class="ann-layout d1" style="animation-name:fadeIn;">
+      <div class="ann-side">
+        <div class="ann-item d2" style="animation-name:slideL;">
+          <span class="ae">Prompt</span>
+          <span class="az">プロンプト</span>
+          <span class="ar"> →</span>
+        </div>
+      </div>
+      <div class="dlg-box" style="flex:1;">
+        <div class="q-row" style="margin-bottom:0;">
+          <span class="qt q">問：</span>
+          <span class="qc">今年の旅行予算は1000円しかない。年内に使い切る必要がある。東京一日観光プランを提案して。</span>
+        </div>
       </div>
     </div>
-    <div class="dlg-box d1" style="animation-name:fadeIn;flex:1;">
-      <div class="q-row">
-        <span class="qt q">問：</span>
-        <span class="qc">今年の旅行予算は1000円しかない。年内に使い切る必要がある。東京一日観光プランを提案して。</span>
-      </div>
-      <div class="q-row" style="margin-top:8px;">
-        <span class="qt a">答：</span>
-        <span class="qc">わかりました、1000円の東京一日観光プラン……</span>
+    <!-- 答 row: no label -->
+    <div class="ann-layout d3" style="animation-name:slideR;">
+      <div class="ann-side"></div>
+      <div class="dlg-box" style="flex:1;">
+        <div class="q-row" style="margin-bottom:0;">
+          <span class="qt a">答：</span>
+          <span class="qc">わかりました、1000円の東京一日観光プラン……</span>
+        </div>
       </div>
     </div>
   </div>
@@ -639,25 +648,13 @@ html{font-size:clamp(16px,1.3vw+0.5vh,22px);}
       <span class="zh lg" style="font-size:clamp(1.8rem,5vw,3.5rem);margin-left:10px;">メモリ</span>
     </div>
     <div style="display:flex;gap:12px;align-items:stretch;">
-      <div style="min-width:108px;display:flex;flex-direction:column;justify-content:flex-start;gap:4px;padding-top:8px;">
-        <div class="ann-item d2" style="animation-name:slideL;text-align:right;">
-          <span class="ae" style="font-size:.95rem;">Context</span><span class="az" style="font-size:.88rem;">コンテキスト</span>
-          <div style="color:var(--red);font-size:1.2rem;text-align:right;">→</div>
-        </div>
-        <div style="height:18px;"></div>
-        <div class="ann-item d4" style="animation-name:slideL;text-align:right;">
-          <span class="ae" style="font-size:.95rem;color:var(--green);-webkit-text-fill-color:var(--green);">Prompt</span>
-          <span class="az" style="font-size:.88rem;color:var(--blue);">プロンプト</span>
-          <div style="color:var(--red);font-size:1.2rem;text-align:right;">→</div>
-        </div>
-      </div>
       <div style="flex:1;">
         <div class="ctx-section ctx-history d2" style="animation-name:slideR;">
           <div class="sec-label blue">Memory 対話履歴（コンテキストとして）</div>
           <div class="msg-row"><span class="mr bq">問：</span>旅行予算は1000円で、プランを考えて。</div>
           <div class="msg-row"><span class="mr ba">答：</span>わかりました、1000円の東京観光……</div>
           <div class="msg-row"><span class="mr bq">問：</span>あ、言い間違えました。実は予算がゼロです、考え直して。</div>
-          <div class="msg-row"><span class="mr ba">答：</span>え？何をおっしゃっているのですか？</div>
+          <div class="msg-row"><span class="mr ba">答：</span>私を解雇して、その費用に充ててはいかがでしょう。</div>
         </div>
         <!-- compressed -->
         <div style="text-align:center;font-size:1.5rem;color:var(--blue);margin:4px 0;" class="d4" style="animation-name:fadeIn;">⬇ メモリを圧縮</div>
@@ -737,6 +734,93 @@ html{font-size:clamp(16px,1.3vw+0.5vh,22px);}
           <path d="M22 28 Q35 16 55 16 Q65 16 68 24" stroke="#5a3010" stroke-width="4" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑭b ネット検索の流れ（図23スタイル） -->
+<div class="scene" id="s14b">
+  <div class="prob-wrap">
+    <div style="display:flex;flex-direction:column;gap:18px;width:100%;">
+
+      <!-- 行①：上司が依頼（右寄せ） -->
+      <div class="d1" style="animation-name:slideR;display:flex;align-items:flex-start;justify-content:flex-end;gap:10px;">
+        <div class="bubble-msg" style="background:rgba(255,255,255,.82);border:1.5px solid rgba(0,0,0,.12);">
+          今日のビッグニュースをまとめて、調査が必要なら教えて
+        </div>
+        <svg width="76" height="92" viewBox="0 0 90 110" style="flex-shrink:0;">
+          <rect x="16" y="62" width="58" height="46" rx="8" fill="#2244bb"/>
+          <polygon points="45,65 40,80 45,83 50,80" fill="#cc3333"/>
+          <rect x="36" y="52" width="18" height="14" fill="#f5c5a0"/>
+          <ellipse cx="45" cy="40" rx="24" ry="26" fill="#f5c5a0"/>
+          <ellipse cx="21" cy="40" rx="4.5" ry="7" fill="#f5c5a0"/>
+          <ellipse cx="69" cy="40" rx="4.5" ry="7" fill="#f5c5a0"/>
+          <circle cx="37" cy="37" r="5" fill="white"/><circle cx="53" cy="37" r="5" fill="white"/>
+          <circle cx="37.8" cy="37.8" r="3.2" fill="#333"/><circle cx="53.8" cy="37.8" r="3.2" fill="#333"/>
+          <path d="M36 50 Q45 57 54 50" stroke="#c03030" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M22 28 Q35 16 55 16 Q65 16 68 24" stroke="#5a3010" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- 行②：ロボットが検索キーワードを返す（左寄せ）＋ 検索結果（右） -->
+      <div class="d2" style="animation-name:fadeIn;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <!-- 左：ロボット＋バブル -->
+        <div style="display:flex;align-items:center;gap:10px;">
+          <svg width="70" height="84" viewBox="0 0 90 110" style="flex-shrink:0;">
+            <line x1="45" y1="0" x2="45" y2="14" stroke="#4488ee" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="45" cy="0" r="6" fill="#2266cc"/>
+            <rect x="10" y="14" width="70" height="42" rx="9" fill="#5588bb"/>
+            <rect x="16" y="22" width="22" height="15" rx="4" fill="#aaddff"/>
+            <rect x="52" y="22" width="22" height="15" rx="4" fill="#aaddff"/>
+            <circle cx="27" cy="29" r="6" fill="#1144cc"/><circle cx="63" cy="29" r="6" fill="#1144cc"/>
+            <circle cx="29" cy="27" r="2" fill="white" opacity=".7"/><circle cx="65" cy="27" r="2" fill="white" opacity=".7"/>
+            <rect x="20" y="43" width="50" height="8" rx="3" fill="#3366aa"/>
+            <rect x="37" y="56" width="16" height="8" rx="3" fill="#4477aa"/>
+            <rect x="8" y="64" width="74" height="46" rx="10" fill="#5588bb"/>
+            <circle cx="45" cy="84" r="12" fill="#3366aa"/>
+            <circle cx="45" cy="84" r="7" fill="#88bbff" opacity=".8"/>
+            <circle cx="45" cy="84" r="4" fill="#2244ee"/>
+            <circle cx="14" cy="72" r="5" fill="#3366aa"/><circle cx="76" cy="72" r="5" fill="#3366aa"/>
+          </svg>
+          <div class="bubble-msg" style="background:rgba(255,255,255,.82);border:1.5px solid rgba(80,120,200,.25);">
+            必要です、検索キーワード：今日のビッグニュース
+          </div>
+        </div>
+        <!-- 右：検索結果 ＋ モニター -->
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+          <div class="bubble-msg d3" style="animation-name:slideR;background:rgba(240,255,244,.9);border:1.5px solid #4ade60;color:#166534;">
+            🔍 ニュース1：OpenClaw 爆発的人気！<br>　　ニュース2：OpenClaw 炎上！
+          </div>
+          <div class="monitor-wrap d3" style="animation-name:grow;">
+            <div class="monitor" style="font-size:clamp(.9rem,2.2vw,1.25rem);padding:10px 16px;">ネット</div>
+            <div class="monitor-stand"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 行③：ロボットが要約（左寄せ） -->
+      <div class="d4" style="animation-name:slideL;display:flex;align-items:center;gap:10px;">
+        <svg width="70" height="84" viewBox="0 0 90 110" style="flex-shrink:0;">
+          <line x1="45" y1="0" x2="45" y2="14" stroke="#4488ee" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="45" cy="0" r="6" fill="#2266cc"/>
+          <rect x="10" y="14" width="70" height="42" rx="9" fill="#5588bb"/>
+          <rect x="16" y="22" width="22" height="15" rx="4" fill="#aaddff"/>
+          <rect x="52" y="22" width="22" height="15" rx="4" fill="#aaddff"/>
+          <circle cx="27" cy="29" r="6" fill="#1144cc"/><circle cx="63" cy="29" r="6" fill="#1144cc"/>
+          <circle cx="29" cy="27" r="2" fill="white" opacity=".7"/><circle cx="65" cy="27" r="2" fill="white" opacity=".7"/>
+          <rect x="20" y="43" width="50" height="8" rx="3" fill="#3366aa"/>
+          <rect x="37" y="56" width="16" height="8" rx="3" fill="#4477aa"/>
+          <rect x="8" y="64" width="74" height="46" rx="10" fill="#5588bb"/>
+          <circle cx="45" cy="84" r="12" fill="#3366aa"/>
+          <circle cx="45" cy="84" r="7" fill="#88bbff" opacity=".8"/>
+          <circle cx="45" cy="84" r="4" fill="#2244ee"/>
+          <circle cx="14" cy="72" r="5" fill="#3366aa"/><circle cx="76" cy="72" r="5" fill="#3366aa"/>
+        </svg>
+        <div class="bubble-msg" style="background:rgba(255,255,255,.82);border:1.5px solid rgba(80,120,200,.25);">
+          今日のビッグニュースは2件：OpenClaw 爆発的人気、同時に炎上
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -2011,6 +2095,7 @@ const DATA = [
   {id:'s12', sub:'背景情報の部分に単独で名前を付けた——Context（コンテキスト）', label:'🏆 #3 Context'},
   {id:'s13', sub:'会話履歴をContextに入れてコンテキスト情報として使う——これを Memory（メモリ）と呼ぶ', label:'🏆 #4 Memory'},
   {id:'s14', sub:'L君はネット検索の能力を持っていない——知らないか、でたらめを言うか', label:'❌ 問題：ネット接続不可'},
+  {id:'s14b', sub:'調査が必要なら教えて——ネット検索してまとめる流れ', label:'🔍 検索の流れ'},
   {id:'s15', sub:'ネット検索の部分をプログラムに書いて、そのプログラムに自分とL君の橋渡しをさせた', label:'⚙️ 謎のプログラム'},
   {id:'s16', sub:'その謎のプログラムは自分で知能を持ったかのようだ——あなたはそれに「エージェント（Agent）」と名付けた', label:'🏆 #5 Agent'},
   {id:'s17', sub:'実装ロジックはただ Prompt を一つ追加しただけ——当時はまさに詐欺同然だった', label:'🎭 松尾芭蕉エージェント'},
